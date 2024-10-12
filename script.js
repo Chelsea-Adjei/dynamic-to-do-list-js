@@ -5,15 +5,15 @@ const taskInput = document.querySelector('#task-input');
 const taskList = document.querySelector('#task-list');
 
 function addTask(){
-    let taskTest = taskInput.value.trim();
+    const taskText = taskInput.value.trim();
 
-    if (taskTest === ""){
+    if (taskText === ""){
         alert("Please enter a task.");
         return;
     }
 
     const li = document.createElement('li');
-    li.textContent = taskTest;
+    li.textContent = taskText;
 
     const removeButton = document.createElement('button');  // Create a "Remove" button
     removeButton.textContent = "Remove";
