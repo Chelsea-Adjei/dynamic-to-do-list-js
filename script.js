@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+    function loadTasks(){
+     const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+     storedTasks.forEach(taskText => addTask(taskText, false)); // false == (not to save again local to lacal storage)
+
+        function addTask(taskText, save = true){  // task creation logic remains the same
+            if (save) {
+                const storedTasks =JSON.parse(localStorage.getItem('tasks') || '[]');
+
+                storedTasks.push(taskText);
+                localStorage.setItem('tasks', JSON.stringify(storedTasks));
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { loadTasks(); });
+
+
 const addButton = document.getElementById('add-task-btn');
 const taskInput = document.querySelector('#task-input');
 const taskList = document.querySelector('#task-list');
